@@ -14,6 +14,7 @@ La institución cuenta con una unidad de desarrollo de software y una organizaci
 
 ## Documentos
 
+- [TODO y seguimiento](TODO.md)
 - [Contexto, objetivos y principios](docs/01-contexto-y-principios.md)
 - [Marcos de referencia y controles iniciales](docs/02-marcos-de-referencia.md)
 - [Plan de trabajo inicial](docs/03-plan-de-trabajo.md)
