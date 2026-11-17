@@ -24,7 +24,7 @@ Para generar los archivos estáticos: `npm run build`.
 
 ## Identidad visual
 
-El tema daisyUI `institutional` de [`src/styles/global.css`](src/styles/global.css) usa la paleta oficial facilitada para esta interfaz. El azul oscuro `#084682` identifica el panel, el fondo principal y los controles; `#126ab3`, `#1f84ec` y `#3abff0` sirven de apoyo. Los acentos `#ff3c4c`, `#ff798a`, `#f8d63c` y `#90d039` aparecen en la franja de identidad o en estados pertinentes. El texto principal usa `#282828` sobre superficies blancas. Los fondos y bordes claros son matices funcionales para conservar legibilidad.
+El tema daisyUI `institutional` de [`src/styles/global.css`](src/styles/global.css) usa la paleta oficial facilitada para esta interfaz. El azul oscuro `#084682` identifica el panel, el fondo principal y los controles; `#126ab3`, `#1f84ec` y `#3abff0` sirven de apoyo. Los acentos `#ff3c4c`, `#ff798a`, `#f8d63c` y `#90d039` aparecen en la franja de identidad o en estados pertinentes. El texto principal usa `#282828` sobre superficies blancas. Los fondos y bordes claros son matices funcionales para conservar legibilidad. Toda la interfaz usa Oxygen, servida desde los archivos del proyecto mediante `@fontsource/oxygen`.
 
 La clasificación se calcula en [`src/lib/assessment.mjs`](src/lib/assessment.mjs). Es una propuesta inicial para revisión institucional, no una aprobación automática ni una evaluación completa de seguridad. Las categorías y preguntas están en [`src/lib/questions.mjs`](src/lib/questions.mjs).
 
