@@ -2,7 +2,7 @@
 import { steps } from '../lib/questions.mjs';
 import {
   ArrowLeft, ArrowRight, CircleCheck, CircleHelp, ClipboardList,
-  Download, Info, PanelLeftClose, PanelLeftOpen, RotateCcw,
+  CodeXml, Download, GitBranch, Info, RotateCcw, Terminal,
 } from '@lucide/astro';
 import '@fontsource/oxygen/latin-300.css';
 import '@fontsource/oxygen/latin-400.css';
@@ -20,8 +20,7 @@ import '../styles/global.css';
     <title>Ficha de proyecto | Desarrollo institucional</title>
   </head>
   <body class="min-h-screen bg-base-200 text-base-content">
-    <div id="app-shell" class="app-shell" data-intro-open="true">
-      <button id="intro-backdrop" class="intro-backdrop" type="button" aria-label="Cerrar introducción" aria-controls="intro-panel" hidden></button>
+    <div id="app-shell" class="app-shell">
       <aside id="intro-panel" class="intro-panel bg-neutral text-neutral-content" aria-labelledby="page-title">
         <div class="intro-content">
           <div class="flex items-center gap-3">
@@ -30,21 +29,28 @@ import '../styles/global.css';
           </div>
           <div class="intro-copy">
             <span class="badge badge-outline border-white/40 text-neutral-content">Prototipo de ingreso</span>
-            <button id="intro-toggle" type="button" class="btn btn-ghost btn-sm -ml-2 mt-2 flex gap-2 text-white hover:bg-white/15 hover:text-white" aria-controls="intro-panel" aria-expanded="true"><PanelLeftClose size={18} aria-hidden="true" />Ocultar introducción</button>
             <p class="mt-8 text-xs font-bold uppercase tracking-[.16em] text-sky-institutional">Nueva iniciativa de software</p>
-            <h1 id="page-title" class="mt-5 text-4xl font-bold leading-[1.08] tracking-[-.045em]">Una ficha simple para <span class="text-sky-institutional">empezar bien.</span></h1>
+            <h2 id="page-title" class="mt-5 text-4xl font-bold leading-[1.08] tracking-[-.045em]">Una ficha simple para <span class="text-sky-institutional">empezar bien.</span></h2>
             <p class="mt-5 text-sm leading-relaxed text-neutral-content/85">Selecciona las opciones que describen tu proyecto. La ficha ayuda a identificar las revisiones necesarias antes de desarrollar o poner una solución en uso.</p>
           </div>
         </div>
       </aside>
 
       <div class="main-column min-w-0">
+    <div class="coding-art" aria-hidden="true">
+      <div class="coding-art-window">
+        <div class="coding-art-chrome"><span></span><span></span><span></span></div>
+        <CodeXml class="coding-art-code" size={94} strokeWidth={1.3} />
+        <div class="coding-art-lines"><span></span><span></span><span></span></div>
+      </div>
+      <GitBranch class="coding-art-branch" size={46} strokeWidth={1.3} />
+      <Terminal class="coding-art-terminal" size={40} strokeWidth={1.3} />
+    </div>
     <main class="relative mx-auto max-w-5xl px-4 pb-16 pt-10 sm:px-8">
-      <button id="intro-reopen" type="button" class="btn btn-outline btn-sm mb-6 gap-2 border-white/70 text-white hover:border-white hover:bg-white hover:text-primary" aria-controls="intro-panel" aria-expanded="false" hidden><PanelLeftOpen size={18} aria-hidden="true" />Mostrar introducción</button>
       <div class="mb-5 flex flex-wrap items-end justify-between gap-3 px-1">
         <div>
           <p class="mb-1 text-xs font-bold uppercase tracking-[.16em] text-sky-institutional">Punto de partida</p>
-          <h2 id="form-title" class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Ficha de proyecto</h2>
+          <h1 id="form-title" class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Ficha de proyecto</h1>
         </div>
         <p class="text-sm text-white/85">Ninguna respuesta requiere escribir.</p>
       </div>
