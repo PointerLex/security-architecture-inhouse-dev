@@ -10,6 +10,10 @@
     "test": "node --test"
   },
   "dependencies": {
-    "astro": "7.4.12"
+    "@lucide/astro": "1.73.0",
+    "@tailwindcss/vite": "4.3.5",
+    "astro": "7.4.12",
+    "daisyui": "5.8.1",
+    "tailwindcss": "4.3.5"
   }
 }
