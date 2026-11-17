@@ -88,7 +88,7 @@ export const steps = [
         key: 'impacto',
         label: '¿Qué ocurriría si falla o deja de funcionar?',
         options: [
-          ['bajo', 'Impacto bajo; existe una alternativa manual'],
+          ['bajo', 'Impacto bajo (existe una alternativa manual)'],
           ['medio', 'Interrumpe el trabajo de un área'],
           ['alto', 'Afecta servicios importantes o a muchas personas'],
           ['no-se', 'No lo sé'],
