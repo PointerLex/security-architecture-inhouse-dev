@@ -20,6 +20,11 @@ Para generar los archivos estáticos: `npm run build`.
 - Produce una preevaluación orientativa: exploración controlada, revisión estándar o revisión prioritaria.
 - Permite descargar un JSON con las selecciones, la clasificación y los factores detectados.
 - Mantiene las respuestas solo en la memoria de la pestaña mientras está abierta. No las envía a un servidor ni las guarda en el navegador.
+- Muestra la introducción en un panel lateral que se puede ocultar; en pantallas estrechas comienza cerrado para dar prioridad al formulario.
+
+## Identidad visual
+
+El tema daisyUI `institutional` de [`src/styles/global.css`](src/styles/global.css) usa la paleta oficial facilitada para esta interfaz. El azul oscuro `#084682` identifica el panel y los controles principales; `#126ab3`, `#1f84ec` y `#3abff0` sirven de apoyo. Los acentos `#ff3c4c`, `#ff798a`, `#f8d63c` y `#90d039` aparecen en la franja de identidad o en estados pertinentes. El texto principal usa `#282828` sobre superficies blancas. Los fondos y bordes claros son matices funcionales para conservar legibilidad.
 
 La clasificación se calcula en [`src/lib/assessment.mjs`](src/lib/assessment.mjs). Es una propuesta inicial para revisión institucional, no una aprobación automática ni una evaluación completa de seguridad. Las categorías y preguntas están en [`src/lib/questions.mjs`](src/lib/questions.mjs).
 
