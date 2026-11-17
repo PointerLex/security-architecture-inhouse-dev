@@ -1,7 +1,7 @@
 ---
 import { steps } from '../lib/questions.mjs';
 import {
-  ArrowLeft, ArrowRight, CircleCheck, CircleHelp, ClipboardList,
+  ArrowLeft, ArrowRight, CircleCheck, CircleHelp,
   CodeXml, Download, GitBranch, Info, RotateCcw, Terminal,
 } from '@lucide/astro';
 import '@fontsource/oxygen/latin-300.css';
@@ -20,23 +20,7 @@ import '../styles/global.css';
     <title>Ficha de proyecto | Desarrollo institucional</title>
   </head>
   <body class="min-h-screen bg-base-200 text-base-content">
-    <div id="app-shell" class="app-shell">
-      <aside id="intro-panel" class="intro-panel bg-neutral text-neutral-content" aria-labelledby="page-title">
-        <div class="intro-content">
-          <div class="flex items-center gap-3">
-            <span class="grid size-10 shrink-0 place-items-center rounded-xl bg-white text-neutral"><ClipboardList size={21} aria-hidden="true" /></span>
-            <span class="text-sm font-bold leading-tight tracking-tight">Desarrollo institucional</span>
-          </div>
-          <div class="intro-copy">
-            <span class="badge badge-outline border-white/40 text-neutral-content">Prototipo de ingreso</span>
-            <p class="mt-8 text-xs font-bold uppercase tracking-[.16em] text-sky-institutional">Nueva iniciativa de software</p>
-            <h2 id="page-title" class="mt-5 text-4xl font-bold leading-[1.08] tracking-[-.045em]">Una ficha simple para <span class="text-sky-institutional">empezar bien.</span></h2>
-            <p class="mt-5 text-sm leading-relaxed text-neutral-content/85">Selecciona las opciones que describen tu proyecto. La ficha ayuda a identificar las revisiones necesarias antes de desarrollar o poner una solución en uso.</p>
-          </div>
-        </div>
-      </aside>
-
-      <div class="main-column min-w-0">
+    <div class="main-column min-w-0">
     <div class="coding-art" aria-hidden="true">
       <div class="coding-art-window">
         <div class="coding-art-chrome"><span></span><span></span><span></span></div>
@@ -135,7 +119,6 @@ import '../styles/global.css';
     </main>
 
     <footer class="mx-auto flex max-w-5xl flex-wrap justify-between gap-2 border-t border-white/25 px-5 py-6 text-xs text-white/80 sm:px-8"><span>Arquitectura y desarrollo seguro · Borrador de trabajo</span><span>La evaluación automática no constituye aprobación.</span></footer>
-      </div>
     </div>
     <script>import '../scripts/form.js';</script>
   </body>
