@@ -65,7 +65,9 @@ html, body, button, input, select, textarea { font-family: Oxygen, ui-sans-serif
 .option-card:has(input:focus-visible) { outline: 3px solid var(--color-primary); outline-offset: 2px; }
 .question.invalid legend { color: var(--color-error); }
 .question.invalid .option-grid { border-left: 3px solid var(--color-error); padding-left: .6rem; }
-.assessment[data-level="prioritaria"] { --alert-color: var(--color-warning); }
+.assessment { background: #eaf3fb; color: #084682; border: 1px solid #bfd6ed; border-left: 4px solid #126ab3; }
+.assessment[data-level="prioritaria"] { background: #fff9e3; color: #282828; border-color: #e6d48a; border-left-color: #f8d63c; }
+.assessment[data-level="exploracion"] { background: #f2f9e9; color: #282828; border-color: #d3e8b9; border-left-color: #90d039; }
 .unknowns-note { background: var(--color-warning); color: var(--color-warning-content); border: 1px solid var(--color-warning); font-weight: 600; }
 @keyframes enter-softly { from { opacity: 0; translate: 0 10px; } to { opacity: 1; translate: 0 0; } }
 @keyframes drift-softly { 50% { translate: 0 -8px; } }
