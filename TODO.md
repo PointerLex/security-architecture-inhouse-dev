@@ -11,6 +11,8 @@
 - [x] Registrar [NIST SSDF y las referencias OWASP](docs/02-marcos-de-referencia.md).
 - [x] Proponer un [plan de trabajo de 12 semanas](docs/03-plan-de-trabajo.md).
 - [x] Crear una [ficha de proyecto](templates/ficha-proyecto.md) para iniciar el inventario.
+- [x] Construir un [prototipo Astro de ingreso por selección](app/README.md), con preevaluación orientativa y descarga local.
+- [x] Elegir un sistema interno privado como destino de las solicitudes; falta definir la plataforma concreta.
 
 ## P0 — Definir el alcance y reducir exposición inmediata (semanas 1–2)
 
@@ -47,6 +49,15 @@
 - [ ] Incorporar CI mínimo: compilación o validación, pruebas y análisis de dependencias.
 - [ ] Evaluar análisis de código, escaneo de secretos y protección al subir cambios según el plan de GitHub y otras herramientas disponibles.
 - [ ] Definir quién puede modificar workflows de CI/CD, configuración de despliegue y archivos de seguridad.
+
+### Recepción y revisión de solicitudes
+
+- [ ] Identificar el sistema interno privado, sus responsables y la API o mecanismo de integración.
+- [ ] Integrar autenticación institucional para identificar al solicitante sin pedir texto libre.
+- [ ] Validar opciones y clasificación en el servidor; registrar identificador, estado y trazabilidad de cada solicitud.
+- [ ] Definir revisores, decisiones posibles, notificaciones, permisos y conservación de las fichas.
+- [ ] Vincular la aprobación con el proceso para habilitar repositorios, entornos o acceso a datos reales.
+- [ ] Probar accesibilidad, flujo completo y manejo de errores con personal de otras áreas.
 
 ### Uso de IA
 
