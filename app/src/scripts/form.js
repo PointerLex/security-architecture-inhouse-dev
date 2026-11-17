@@ -11,52 +11,8 @@ const errorSummary = document.querySelector('#error-summary');
 const backButton = document.querySelector('#back-button');
 const nextButton = document.querySelector('#next-button');
 const result = document.querySelector('#result');
-const appShell = document.querySelector('#app-shell');
-const introPanel = document.querySelector('#intro-panel');
-const introBackdrop = document.querySelector('#intro-backdrop');
-const mainColumn = document.querySelector('.main-column');
-const introToggle = document.querySelector('#intro-toggle');
-const introReopen = document.querySelector('#intro-reopen');
 let currentStep = 0;
 let completedFicha = null;
-
-function setIntroOpen(open, moveFocus = false) {
-  appShell.dataset.introOpen = String(open);
-  introPanel.hidden = !open;
-  introToggle.setAttribute('aria-expanded', String(open));
-  introReopen.hidden = open;
-  introReopen.setAttribute('aria-expanded', String(open));
-  const overlayOpen = compactLayout.matches && open;
-  introBackdrop.hidden = !overlayOpen;
-  mainColumn.inert = overlayOpen;
-  document.body.style.overflow = overlayOpen ? 'hidden' : '';
-  if (moveFocus) (open ? introToggle : introReopen).focus();
-}
-
-const compactLayout = window.matchMedia('(max-width: 1199px)');
-let introChangedByUser = false;
-setIntroOpen(!compactLayout.matches);
-introToggle.addEventListener('click', () => {
-  introChangedByUser = true;
-  setIntroOpen(false, true);
-});
-introReopen.addEventListener('click', () => {
-  introChangedByUser = true;
-  setIntroOpen(true, true);
-});
-introBackdrop.addEventListener('click', () => {
-  introChangedByUser = true;
-  setIntroOpen(false, true);
-});
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && compactLayout.matches && !introPanel.hidden) {
-    introChangedByUser = true;
-    setIntroOpen(false, true);
-  }
-});
-compactLayout.addEventListener('change', () => {
-  setIntroOpen(introChangedByUser ? !introPanel.hidden : !compactLayout.matches);
-});
 
 function showStep(index) {
   currentStep = index;
