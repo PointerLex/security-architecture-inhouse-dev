@@ -1,6 +1,6 @@
 # Ficha de ingreso de proyectos
 
-Prototipo en Astro para registrar una iniciativa **solo mediante selecciones**. Parte de la [ficha de inventario](../templates/ficha-proyecto.md), pero limita esta primera interacción a los datos necesarios para orientar una revisión. Los datos que requieren nombres, responsables o detalles técnicos se completarán después en un sistema interno apropiado.
+Prototipo en Astro para registrar una iniciativa **solo mediante selecciones**. La interfaz usa [daisyUI](https://daisyui.com/components/) con Tailwind CSS y los íconos de Lucide. Parte de la [ficha de inventario](../templates/ficha-proyecto.md), pero limita esta primera interacción a los datos necesarios para orientar una revisión. Los datos que requieren nombres, responsables o detalles técnicos se completarán después en un sistema interno apropiado.
 
 ## Ejecutar
 
