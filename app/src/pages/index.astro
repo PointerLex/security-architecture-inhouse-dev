@@ -1,139 +1,143 @@
 ---
 import { steps } from '../lib/questions.mjs';
+import {
+  ArrowLeft, ArrowRight, CircleCheck, CircleHelp, ClipboardList,
+  Download, Info, ListChecks, RotateCcw, ShieldCheck,
+} from '@lucide/astro';
 import '../styles/global.css';
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" data-theme="institutional">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#10233b" />
+    <meta name="theme-color" content="#142b34" />
     <meta name="description" content="Ficha de ingreso para iniciativas de desarrollo de software institucional." />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Ficha de proyecto | Desarrollo institucional</title>
   </head>
-  <body>
-    <div class="page-shell">
-      <header class="site-header">
-        <div class="brand" aria-label="Desarrollo institucional">
-          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
-          <span>Desarrollo institucional</span>
-        </div>
-        <span class="header-tag">Ficha de ingreso · prototipo</span>
+  <body class="min-h-screen bg-base-200 text-base-content">
+    <div class="bg-neutral text-neutral-content hero-wash">
+      <header class="border-b border-white/10">
+        <nav class="navbar mx-auto max-w-7xl px-5 sm:px-8" aria-label="Navegación principal">
+          <div class="navbar-start gap-3">
+            <span class="grid size-10 place-items-center rounded-xl bg-accent text-accent-content"><ClipboardList size={21} aria-hidden="true" /></span>
+            <span class="text-sm font-bold tracking-tight sm:text-base">Desarrollo institucional</span>
+          </div>
+          <div class="navbar-end"><span class="badge badge-outline border-white/30 text-neutral-content">Prototipo de ingreso</span></div>
+        </nav>
       </header>
 
-      <main>
-        <section class="intro" aria-labelledby="page-title">
-          <div>
-            <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> Nueva iniciativa de software</p>
-            <h1 id="page-title">Empecemos con una<br /><em>base clara.</em></h1>
-            <p class="intro-copy">Selecciona las opciones que mejor describen tu proyecto. La ficha ayuda a identificar las revisiones necesarias antes de desarrollar o poner una solución en uso.</p>
-            <div class="intro-meta">
-              <span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 3 pasos</span>
-              <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg> Solo selecciones</span>
-              <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/><path d="M9 12l2 2 4-4"/></svg> Sin envío de datos</span>
-            </div>
+      <section class="mx-auto grid max-w-7xl gap-10 px-5 pb-16 pt-14 sm:px-8 sm:pt-20 lg:grid-cols-[minmax(0,1.55fr)_minmax(260px,.7fr)] lg:items-end" aria-labelledby="page-title">
+        <div>
+          <p class="mb-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[.18em] text-accent"><span class="h-px w-6 bg-accent" aria-hidden="true"></span>Nueva iniciativa de software</p>
+          <h1 id="page-title" class="max-w-3xl text-4xl font-bold leading-[1.08] tracking-[-.045em] sm:text-5xl lg:text-6xl">Una ficha simple para <span class="text-accent">empezar bien.</span></h1>
+          <p class="mt-6 max-w-2xl text-base leading-relaxed text-neutral-content/75 sm:text-lg">Selecciona las opciones que describen tu proyecto. La ficha ayuda a identificar las revisiones necesarias antes de desarrollar o poner una solución en uso.</p>
+          <div class="mt-7 flex flex-wrap gap-2" aria-label="Características de la ficha">
+            <span class="badge badge-lg border-white/15 bg-white/10 text-neutral-content"><ListChecks size={15} aria-hidden="true" /> 3 pasos</span>
+            <span class="badge badge-lg border-white/15 bg-white/10 text-neutral-content"><CircleCheck size={15} aria-hidden="true" /> Solo selecciones</span>
+            <span class="badge badge-lg border-white/15 bg-white/10 text-neutral-content"><ShieldCheck size={15} aria-hidden="true" /> Sin envío de datos</span>
           </div>
-          <aside class="intro-aside" aria-label="Información importante">
-            <div class="aside-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4 7v5c0 5 3.5 8 8 9 4.5-1 8-4 8-9V7l-8-4Z"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></div>
-            <p class="aside-label">Antes de comenzar</p>
-            <p>Esta versión genera una <strong>preevaluación orientativa</strong>. La recepción se integrará con un sistema interno privado; todavía no emite autorizaciones.</p>
-          </aside>
-        </section>
-
-        <section class="workspace" aria-labelledby="form-title">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow dark">Punto de partida</p>
-              <h2 id="form-title">Ficha de proyecto</h2>
-            </div>
-            <p>Ninguna respuesta requiere escribir.</p>
+        </div>
+        <aside class="card border border-white/15 bg-white/8 shadow-none" aria-label="Información importante">
+          <div class="card-body gap-3 p-5 sm:p-6">
+            <span class="grid size-10 place-items-center rounded-xl bg-accent/15 text-accent"><Info size={21} aria-hidden="true" /></span>
+            <h2 class="text-sm font-bold uppercase tracking-[.12em] text-accent">Antes de comenzar</h2>
+            <p class="text-sm leading-relaxed text-neutral-content/80">Esta versión genera una preevaluación orientativa. La recepción se integrará con un sistema interno privado; todavía no emite autorizaciones.</p>
           </div>
-
-          <div class="form-layout">
-            <aside class="steps-panel" aria-label="Progreso de la ficha">
-              <p class="panel-label">TU RECORRIDO</p>
-              <ol class="step-list">
-                {steps.map((step, index) => (
-                  <li class:list={{ active: index === 0 }} data-step-indicator={index}>
-                    <span class="step-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-                    <span>{step.title}</span>
-                  </li>
-                ))}
-              </ol>
-              <div class="panel-note">
-                <span class="note-dot" aria-hidden="true"></span>
-                <p>Si no conoces una respuesta, puedes elegir “No lo sé”. Eso quedará señalado para revisión.</p>
-              </div>
-            </aside>
-
-            <div class="form-card">
-              <div class="progress-head"><span id="progress-label">Paso 1 de 3</span><span id="progress-count">33%</span></div>
-              <div class="progress-track" aria-hidden="true"><span id="progress-fill"></span></div>
-
-              <form id="intake-form" novalidate>
-                <div id="error-summary" class="error-summary" role="alert" tabindex="-1" hidden>
-                  <strong>Faltan respuestas en este paso</strong>
-                  <p>Selecciona una opción en cada pregunta señalada para continuar.</p>
-                </div>
-
-                {steps.map((step, index) => (
-                  <section class="form-step" data-step={index} hidden={index !== 0} aria-labelledby={`step-title-${index}`}>
-                    <p class="step-eyebrow">{step.eyebrow}</p>
-                    <h3 id={`step-title-${index}`}>{step.title}</h3>
-                    <p class="step-description">{step.description}</p>
-                    {step.questions.map((question, questionIndex) => (
-                      <fieldset class="question" data-question={question.key}>
-                        <legend><span>{String(index * 3 + questionIndex + 1).padStart(2, '0')}</span>{question.label}</legend>
-                        <div class="options-grid">
-                          {question.options.map(([value, label]) => (
-                            <label class="option" for={`${question.key}-${value}`}>
-                              <input id={`${question.key}-${value}`} type="radio" name={question.key} value={value} />
-                              <span class="option-indicator" aria-hidden="true"></span>
-                              <span>{label}</span>
-                            </label>
-                          ))}
-                        </div>
-                        <p class="field-error" id={`${question.key}-error`} hidden>Selecciona una opción para continuar.</p>
-                      </fieldset>
-                    ))}
-                  </section>
-                ))}
-
-                <div class="form-actions">
-                  <button type="button" id="back-button" class="button secondary" hidden>Volver</button>
-                  <button type="button" id="next-button" class="button primary">Continuar <span aria-hidden="true">→</span></button>
-                </div>
-              </form>
-
-              <section id="result" class="result" hidden aria-labelledby="result-title">
-                <div class="result-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg></div>
-                <p class="step-eyebrow">Ficha completada</p>
-                <h3 id="result-title">Preevaluación lista</h3>
-                <p class="result-intro">Tus selecciones generan esta orientación inicial. Aún no se ha enviado ninguna solicitud.</p>
-                <div class="assessment" id="assessment">
-                  <span class="assessment-label">Nivel orientativo</span>
-                  <strong id="assessment-title"></strong>
-                  <p id="assessment-summary"></p>
-                </div>
-                <div id="reasons-wrap" class="reasons-wrap" hidden>
-                  <h4>Factores detectados</h4>
-                  <ul id="assessment-reasons"></ul>
-                </div>
-                <p id="unknowns-note" class="unknowns-note" hidden></p>
-                <div class="result-actions">
-                  <button type="button" id="download-button" class="button primary">Descargar ficha <span aria-hidden="true">↓</span></button>
-                  <button type="button" id="reset-button" class="button secondary">Crear otra ficha</button>
-                </div>
-                <p class="privacy-note">La descarga queda en tu equipo. Antes de compartirla, confirma el canal institucional apropiado.</p>
-              </section>
-            </div>
-          </div>
-        </section>
-      </main>
-      <footer class="site-footer"><span>Arquitectura y desarrollo seguro · Borrador de trabajo</span><span>La evaluación automática no constituye aprobación.</span></footer>
+        </aside>
+      </section>
     </div>
+
+    <main class="relative mx-auto max-w-7xl px-4 pb-20 pt-10 sm:px-8">
+      <div class="mb-5 flex flex-wrap items-end justify-between gap-3 px-1">
+        <div>
+          <p class="mb-1 text-xs font-bold uppercase tracking-[.16em] text-primary">Punto de partida</p>
+          <h2 id="form-title" class="text-2xl font-bold tracking-tight sm:text-3xl">Ficha de proyecto</h2>
+        </div>
+        <p class="text-sm text-base-content/60">Ninguna respuesta requiere escribir.</p>
+      </div>
+
+      <section class="grid gap-5 lg:grid-cols-[280px_minmax(0,1fr)]" aria-labelledby="form-title">
+        <aside class="card h-fit border border-base-300 bg-base-100 shadow-sm" aria-label="Progreso de la ficha">
+          <div class="card-body p-5 sm:p-6">
+            <p class="text-xs font-bold uppercase tracking-[.16em] text-base-content/50">Tu recorrido</p>
+            <ol class="steps steps-horizontal my-3 w-full text-xs lg:steps-vertical lg:items-start lg:text-sm">
+              {steps.map((step, index) => (
+                <li class:list={['step', { 'step-primary': index === 0 }]} data-step-indicator={index} aria-current={index === 0 ? 'step' : undefined}>{step.title}</li>
+              ))}
+            </ol>
+            <div class="alert alert-info alert-soft items-start text-xs leading-relaxed" role="note">
+              <CircleHelp size={18} class="mt-0.5 shrink-0" aria-hidden="true" />
+              <span>Si no conoces una respuesta, selecciona “No lo sé”. Quedará señalada para revisión.</span>
+            </div>
+          </div>
+        </aside>
+
+        <div class="card min-w-0 border border-base-300 bg-base-100 shadow-xl shadow-neutral/5">
+          <div class="card-body p-5 sm:p-8 lg:p-10">
+            <div class="mb-2 flex justify-between text-xs font-bold uppercase tracking-[.12em] text-base-content/55"><span id="progress-label">Paso 1 de 3</span><span id="progress-count">33%</span></div>
+            <progress id="progress-track" class="progress progress-primary mb-7 w-full" value="33" max="100" aria-label="Progreso de la ficha"></progress>
+
+            <form id="intake-form" novalidate>
+              <div id="error-summary" class="alert alert-error alert-soft mb-6 items-start" role="alert" tabindex="-1" hidden>
+                <Info size={20} class="mt-0.5 shrink-0" aria-hidden="true" />
+                <div><strong>Faltan respuestas en este paso</strong><p class="text-sm">Selecciona una opción en cada pregunta señalada para continuar.</p></div>
+              </div>
+
+              {steps.map((step, index) => (
+                <section class="form-step" data-step={index} hidden={index !== 0} aria-labelledby={`step-title-${index}`}>
+                  <p class="mb-1 text-xs font-bold uppercase tracking-[.14em] text-primary">{step.eyebrow}</p>
+                  <h3 id={`step-title-${index}`} class="text-2xl font-bold tracking-tight">{step.title}</h3>
+                  <p class="mb-8 mt-2 text-sm text-base-content/60">{step.description}</p>
+
+                  {step.questions.map((question, questionIndex) => (
+                    <fieldset class="question mb-8" data-question={question.key}>
+                      <legend class="mb-3 flex items-baseline gap-3 text-sm font-semibold sm:text-base"><span class="font-mono text-xs font-bold text-primary">{String(index * 3 + questionIndex + 1).padStart(2, '0')}</span>{question.label}</legend>
+                      <div class="option-grid grid gap-2 sm:grid-cols-2">
+                        {question.options.map(([value, label]) => (
+                          <label class="option-card flex min-h-14 cursor-pointer items-center gap-3 rounded-box border border-base-300 bg-base-100 px-4 py-3 text-sm leading-snug hover:border-primary/55 hover:bg-base-200" for={`${question.key}-${value}`}>
+                            <input class="radio radio-primary radio-sm shrink-0" id={`${question.key}-${value}`} type="radio" name={question.key} value={value} />
+                            <span>{label}</span>
+                          </label>
+                        ))}
+                      </div>
+                      <p class="field-error mt-2 text-xs font-semibold text-error" id={`${question.key}-error`} hidden>Selecciona una opción para continuar.</p>
+                    </fieldset>
+                  ))}
+                </section>
+              ))}
+
+              <div class="flex flex-wrap justify-between gap-3 border-t border-base-300 pt-6">
+                <button type="button" id="back-button" class="btn btn-ghost" hidden><ArrowLeft size={17} aria-hidden="true" />Volver</button>
+                <button type="button" id="next-button" class="btn btn-primary ml-auto"><span class="button-label">Continuar</span><ArrowRight size={17} aria-hidden="true" /></button>
+              </div>
+            </form>
+
+            <section id="result" class="result" hidden aria-labelledby="result-title">
+              <span class="mb-4 grid size-12 place-items-center rounded-box bg-success/10 text-success"><CircleCheck size={26} aria-hidden="true" /></span>
+              <p class="mb-1 text-xs font-bold uppercase tracking-[.14em] text-primary">Ficha completada</p>
+              <h3 id="result-title" class="text-2xl font-bold tracking-tight">Preevaluación lista</h3>
+              <p class="mt-2 text-sm text-base-content/65">Tus selecciones generan esta orientación inicial. Aún no se ha enviado ninguna solicitud.</p>
+              <div class="alert alert-info alert-soft assessment my-6 block" id="assessment">
+                <span class="text-xs font-bold uppercase tracking-[.13em]">Nivel orientativo</span>
+                <strong id="assessment-title" class="mt-1 block text-xl"></strong>
+                <p id="assessment-summary" class="mt-1 text-sm"></p>
+              </div>
+              <div id="reasons-wrap" hidden><h4 class="text-sm font-bold">Factores detectados</h4><ul id="assessment-reasons" class="mt-2 list-inside list-disc space-y-1 text-sm"></ul></div>
+              <p id="unknowns-note" class="alert alert-warning alert-soft mt-5 text-sm" hidden></p>
+              <div class="mt-7 flex flex-wrap gap-2">
+                <button type="button" id="download-button" class="btn btn-primary"><Download size={17} aria-hidden="true" />Descargar ficha</button>
+                <button type="button" id="reset-button" class="btn btn-ghost"><RotateCcw size={17} aria-hidden="true" />Crear otra ficha</button>
+              </div>
+              <p class="mt-4 text-xs text-base-content/55">La descarga queda en tu equipo. Antes de compartirla, confirma el canal institucional apropiado.</p>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="mx-auto flex max-w-7xl flex-wrap justify-between gap-2 border-t border-base-300 px-5 py-6 text-xs text-base-content/50 sm:px-8"><span>Arquitectura y desarrollo seguro · Borrador de trabajo</span><span>La evaluación automática no constituye aprobación.</span></footer>
     <script>import '../scripts/form.js';</script>
   </body>
 </html>
