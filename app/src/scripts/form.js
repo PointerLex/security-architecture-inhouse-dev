@@ -6,7 +6,7 @@ const stepSections = [...document.querySelectorAll('[data-step]')];
 const stepIndicators = [...document.querySelectorAll('[data-step-indicator]')];
 const progressLabel = document.querySelector('#progress-label');
 const progressCount = document.querySelector('#progress-count');
-const progressFill = document.querySelector('#progress-fill');
+const progressTrack = document.querySelector('#progress-track');
 const errorSummary = document.querySelector('#error-summary');
 const backButton = document.querySelector('#back-button');
 const nextButton = document.querySelector('#next-button');
@@ -20,19 +20,18 @@ function showStep(index) {
     section.hidden = position !== index;
   });
   stepIndicators.forEach((indicator, position) => {
-    indicator.classList.toggle('active', position === index);
-    indicator.classList.toggle('complete', position < index);
+    indicator.classList.toggle('step-primary', position <= index);
     if (position === index) indicator.setAttribute('aria-current', 'step');
     else indicator.removeAttribute('aria-current');
   });
   const progress = Math.round(((index + 1) / steps.length) * 100);
   progressLabel.textContent = `Paso ${index + 1} de ${steps.length}`;
   progressCount.textContent = `${progress}%`;
-  progressFill.style.width = `${progress}%`;
+  progressTrack.value = progress;
   backButton.hidden = index === 0;
-  nextButton.innerHTML = index === steps.length - 1
-    ? 'Ver preevaluación <span aria-hidden="true">→</span>'
-    : 'Continuar <span aria-hidden="true">→</span>';
+  nextButton.querySelector('.button-label').textContent = index === steps.length - 1
+    ? 'Ver preevaluación'
+    : 'Continuar';
   errorSummary.hidden = true;
 }
 
@@ -75,7 +74,12 @@ function finish() {
 
   form.hidden = true;
   result.hidden = false;
-  document.querySelector('#assessment').dataset.level = assessment.level;
+  const assessmentPanel = document.querySelector('#assessment');
+  assessmentPanel.dataset.level = assessment.level;
+  assessmentPanel.classList.remove('alert-info', 'alert-warning', 'alert-success');
+  assessmentPanel.classList.add(assessment.level === 'prioritaria'
+    ? 'alert-warning'
+    : assessment.level === 'estandar' ? 'alert-info' : 'alert-success');
   document.querySelector('#assessment-title').textContent = assessment.title;
   document.querySelector('#assessment-summary').textContent = assessment.summary;
 
