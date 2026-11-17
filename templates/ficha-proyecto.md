@@ -1,6 +1,8 @@
 # Ficha de proyecto
 
 > Copiar esta plantilla en un espacio con visibilidad adecuada. **No completar aquí información sensible si el repositorio es público.**
+>
+> Para el ingreso inicial sin escribir, usar el [prototipo Astro de selección](../app/README.md). Esta plantilla más detallada se completa durante la revisión interna.
 
 ## Identificación
 
