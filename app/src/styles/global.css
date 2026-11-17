@@ -44,10 +44,20 @@ html, body, button, input, select, textarea { font-family: Oxygen, ui-sans-serif
 [hidden] { display: none !important; }
 :focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
 .app-shell { display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); min-height: 100vh; }
-.app-shell[data-intro-open="false"] { grid-template-columns: minmax(0, 1fr); }
-.main-column { background: #084682; }
+.main-column { position: relative; isolation: isolate; overflow: hidden; background: #084682; background-image: radial-gradient(circle at 88% 5%, rgba(58, 191, 240, .14), transparent 24rem), radial-gradient(rgba(58, 191, 240, .12) .7px, transparent .8px); background-size: auto, 26px 26px; }
+.main-column > main, .main-column > footer { position: relative; z-index: 1; }
 .intro-panel { position: sticky; top: 0; height: 100vh; overflow-y: auto; }
-.intro-backdrop { display: none; }
+.coding-art { position: absolute; z-index: 0; top: -18px; right: 29%; width: 230px; height: 170px; color: #3abff0; opacity: .34; pointer-events: none; transform: rotate(-7deg); }
+.coding-art-window { position: absolute; inset: 18px 25px 0 0; border: 2px solid currentColor; border-radius: 18px; }
+.coding-art-chrome { display: flex; gap: 7px; padding: 13px 15px; border-bottom: 2px solid currentColor; }
+.coding-art-chrome span { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.coding-art-code { position: absolute; left: 24px; top: 52px; }
+.coding-art-lines { position: absolute; left: 125px; right: 16px; top: 68px; display: grid; gap: 12px; }
+.coding-art-lines span { height: 5px; border-radius: 5px; background: currentColor; }
+.coding-art-lines span:nth-child(2) { width: 66%; }
+.coding-art-lines span:nth-child(3) { width: 82%; }
+.coding-art-branch { position: absolute; right: 0; bottom: 0; }
+.coding-art-terminal { position: absolute; right: -15px; top: 0; }
 .intro-panel::before { content: ""; display: block; height: 6px; background: linear-gradient(90deg, #ff3c4c 0 17%, #ff798a 17% 34%, #f8d63c 34% 51%, #90d039 51% 68%, #3abff0 68% 85%, #1f84ec 85%); }
 .intro-content { max-width: 420px; margin: 0 auto; padding: 28px 28px 36px; }
 .text-sky-institutional { color: #3abff0; }
@@ -58,11 +68,13 @@ html, body, button, input, select, textarea { font-family: Oxygen, ui-sans-serif
 .question.invalid .option-grid { border-left: 3px solid var(--color-error); padding-left: .6rem; }
 .assessment[data-level="prioritaria"] { --alert-color: var(--color-warning); }
 .unknowns-note { background: var(--color-warning); color: var(--color-warning-content); border: 1px solid var(--color-warning); font-weight: 600; }
-@media (min-width: 1200px) { .app-shell[data-intro-open="true"] .main-column > main, .app-shell[data-intro-open="true"] .main-column > footer { margin-left: 0; } }
+@media (min-width: 1200px) { .main-column > main, .main-column > footer { margin-left: 0; } .coding-art { top: 5px; right: 24%; width: 280px; height: 190px; opacity: .3; transform: rotate(-7deg) scale(1.1); transform-origin: top right; } }
+@media (min-width: 1700px) { .coding-art { top: 140px; right: 6%; width: 340px; height: 250px; opacity: .34; transform: rotate(-7deg) scale(1.5); } }
+@media (max-width: 1699px) { .coding-art-window { border: 0; } .coding-art-chrome, .coding-art-lines, .coding-art-branch, .coding-art-terminal { display: none; } .coding-art-code { left: 60px; top: 13px; width: 88px; height: 88px; } }
 @media (max-width: 1199px) {
   .app-shell { display: block; }
-  .intro-panel { position: fixed; z-index: 60; inset: 0 auto 0 0; width: min(360px, calc(100vw - 32px)); height: 100dvh; box-shadow: 16px 0 40px rgba(0, 22, 55, .28); }
-  .intro-backdrop:not([hidden]) { display: block; position: fixed; z-index: 50; inset: 0; width: 100%; height: 100dvh; background: rgba(0, 22, 55, .62); border: 0; cursor: pointer; }
+  .intro-panel { display: none; }
 }
+@media (max-width: 640px) { .coding-art { display: none; } }
 @media (max-width: 480px) { .intro-content { padding: 24px 20px 30px; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
