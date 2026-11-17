@@ -64,8 +64,8 @@ html, body, button, input, select, textarea { font-family: Oxygen, ui-sans-serif
 .question.invalid .option-grid { border-left: 3px solid var(--color-error); padding-left: .6rem; }
 .assessment[data-level="prioritaria"] { --alert-color: var(--color-warning); }
 .unknowns-note { background: var(--color-warning); color: var(--color-warning-content); border: 1px solid var(--color-warning); font-weight: 600; }
-@media (min-width: 1200px) { .main-column > main, .main-column > footer { margin-left: 0; } .coding-art { top: 5px; right: 24%; width: 280px; height: 190px; opacity: .3; transform: rotate(-7deg) scale(1.1); transform-origin: top right; } }
-@media (min-width: 1700px) { .coding-art { top: 140px; right: 6%; width: 340px; height: 250px; opacity: .34; transform: rotate(-7deg) scale(1.5); } }
+@media (min-width: 1200px) { .coding-art { top: 5px; right: 24%; width: 280px; height: 190px; opacity: .3; transform: rotate(-7deg) scale(1.1); transform-origin: top right; } }
+@media (min-width: 1700px) { .coding-art { top: 140px; right: 1%; width: 340px; height: 250px; opacity: .34; transform: rotate(-7deg) scale(1.2); } }
 @media (max-width: 1699px) { .coding-art-window { border: 0; } .coding-art-chrome, .coding-art-lines, .coding-art-branch, .coding-art-terminal { display: none; } .coding-art-code { left: 60px; top: 13px; width: 88px; height: 88px; } }
 @media (max-width: 640px) { .coding-art { display: none; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
