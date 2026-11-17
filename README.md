@@ -14,6 +14,7 @@ La institución cuenta con una unidad de desarrollo de software y una organizaci
 
 ## Documentos
 
+- [Prototipo Astro de ficha por selección](app/README.md)
 - [TODO y seguimiento](TODO.md)
 - [Contexto, objetivos y principios](docs/01-contexto-y-principios.md)
 - [Marcos de referencia y controles iniciales](docs/02-marcos-de-referencia.md)
@@ -31,6 +32,7 @@ La institución cuenta con una unidad de desarrollo de software y una organizaci
 
 ## Próximas decisiones
 
+- Integrar la ficha con un sistema interno privado para recibir y revisar solicitudes; falta definir plataforma y autenticación.
 - Confirmar el tipo de institución, el alcance y la autoridad de esta iniciativa.
 - Confirmar si este repositorio debe trasladarse a la organización institucional y si seguirá siendo público.
 - Identificar el plan de GitHub y las funciones de seguridad disponibles.
