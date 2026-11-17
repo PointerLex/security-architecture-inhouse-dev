@@ -21,6 +21,7 @@ Para generar los archivos estáticos: `npm run build`.
 - Permite descargar un JSON con las selecciones, la clasificación y los factores detectados.
 - Mantiene las respuestas solo en la memoria de la pestaña mientras está abierta. No las envía a un servidor ni las guarda en el navegador.
 - Presenta el formulario a ancho completo en tablet y móvil, con espacio para el motivo visual en pantallas grandes.
+- Usa transiciones breves al cargar, cambiar de paso y seleccionar opciones; respeta la preferencia del sistema para reducir movimiento.
 
 ## Identidad visual
 
