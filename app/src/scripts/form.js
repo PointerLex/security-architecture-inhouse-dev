@@ -13,31 +13,49 @@ const nextButton = document.querySelector('#next-button');
 const result = document.querySelector('#result');
 const appShell = document.querySelector('#app-shell');
 const introPanel = document.querySelector('#intro-panel');
+const introBackdrop = document.querySelector('#intro-backdrop');
+const mainColumn = document.querySelector('.main-column');
 const introToggle = document.querySelector('#intro-toggle');
-const introToggleLabel = document.querySelector('#intro-toggle-label');
-const introToggleIconOpen = document.querySelector('#intro-toggle-icon-open');
-const introToggleIconClosed = document.querySelector('#intro-toggle-icon-closed');
+const introReopen = document.querySelector('#intro-reopen');
 let currentStep = 0;
 let completedFicha = null;
 
-function setIntroOpen(open) {
+function setIntroOpen(open, moveFocus = false) {
   appShell.dataset.introOpen = String(open);
   introPanel.hidden = !open;
   introToggle.setAttribute('aria-expanded', String(open));
-  introToggleLabel.textContent = open ? 'Ocultar introducción' : 'Mostrar introducción';
-  introToggleIconOpen.hidden = !open;
-  introToggleIconClosed.hidden = open;
+  introReopen.hidden = open;
+  introReopen.setAttribute('aria-expanded', String(open));
+  const overlayOpen = compactLayout.matches && open;
+  introBackdrop.hidden = !overlayOpen;
+  mainColumn.inert = overlayOpen;
+  document.body.style.overflow = overlayOpen ? 'hidden' : '';
+  if (moveFocus) (open ? introToggle : introReopen).focus();
 }
 
-const compactLayout = window.matchMedia('(max-width: 899px)');
+const compactLayout = window.matchMedia('(max-width: 1199px)');
 let introChangedByUser = false;
 setIntroOpen(!compactLayout.matches);
 introToggle.addEventListener('click', () => {
   introChangedByUser = true;
-  setIntroOpen(introPanel.hidden);
+  setIntroOpen(false, true);
+});
+introReopen.addEventListener('click', () => {
+  introChangedByUser = true;
+  setIntroOpen(true, true);
+});
+introBackdrop.addEventListener('click', () => {
+  introChangedByUser = true;
+  setIntroOpen(false, true);
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && compactLayout.matches && !introPanel.hidden) {
+    introChangedByUser = true;
+    setIntroOpen(false, true);
+  }
 });
 compactLayout.addEventListener('change', () => {
-  if (!introChangedByUser) setIntroOpen(!compactLayout.matches);
+  setIntroOpen(introChangedByUser ? !introPanel.hidden : !compactLayout.matches);
 });
 
 function showStep(index) {
@@ -120,10 +138,11 @@ function finish() {
   });
 
   const unknownsNote = document.querySelector('#unknowns-note');
-  unknownsNote.hidden = assessment.unknowns.length === 0;
-  unknownsNote.textContent = assessment.unknowns.length > 0
-    ? `${assessment.unknowns.length} respuesta(s) quedaron sin definir y requieren revisión.`
-    : '';
+  const unknownCount = assessment.unknowns.length;
+  unknownsNote.hidden = unknownCount === 0;
+  unknownsNote.textContent = unknownCount === 1
+    ? '1 respuesta quedó sin definir y requiere revisión.'
+    : unknownCount > 1 ? `${unknownCount} respuestas quedaron sin definir y requieren revisión.` : '';
   document.querySelector('#result-title').setAttribute('tabindex', '-1');
   document.querySelector('#result-title').focus();
 }
