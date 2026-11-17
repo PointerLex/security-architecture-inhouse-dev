@@ -2,7 +2,7 @@
 import { steps } from '../lib/questions.mjs';
 import {
   ArrowLeft, ArrowRight, CircleCheck, CircleHelp, ClipboardList,
-  Download, Info, ListChecks, PanelLeftClose, PanelLeftOpen, RotateCcw, ShieldCheck,
+  Download, Info, PanelLeftClose, PanelLeftOpen, RotateCcw,
 } from '@lucide/astro';
 import '../styles/global.css';
 ---
@@ -18,7 +18,8 @@ import '../styles/global.css';
   </head>
   <body class="min-h-screen bg-base-200 text-base-content">
     <div id="app-shell" class="app-shell" data-intro-open="true">
-      <aside id="intro-panel" class="intro-panel hero-wash bg-neutral text-neutral-content" aria-labelledby="page-title">
+      <button id="intro-backdrop" class="intro-backdrop" type="button" aria-label="Cerrar introducción" aria-controls="intro-panel" hidden></button>
+      <aside id="intro-panel" class="intro-panel bg-neutral text-neutral-content" aria-labelledby="page-title">
         <div class="intro-content">
           <div class="flex items-center gap-3">
             <span class="grid size-10 shrink-0 place-items-center rounded-xl bg-white text-neutral"><ClipboardList size={21} aria-hidden="true" /></span>
@@ -26,44 +27,23 @@ import '../styles/global.css';
           </div>
           <div class="intro-copy">
             <span class="badge badge-outline border-white/40 text-neutral-content">Prototipo de ingreso</span>
-            <p class="mt-10 text-xs font-bold uppercase tracking-[.16em] text-sky-institutional">Nueva iniciativa de software</p>
+            <button id="intro-toggle" type="button" class="btn btn-ghost btn-sm -ml-2 mt-2 flex gap-2 text-white hover:bg-white/15 hover:text-white" aria-controls="intro-panel" aria-expanded="true"><PanelLeftClose size={18} aria-hidden="true" />Ocultar introducción</button>
+            <p class="mt-8 text-xs font-bold uppercase tracking-[.16em] text-sky-institutional">Nueva iniciativa de software</p>
             <h1 id="page-title" class="mt-5 text-4xl font-bold leading-[1.08] tracking-[-.045em]">Una ficha simple para <span class="text-sky-institutional">empezar bien.</span></h1>
             <p class="mt-5 text-sm leading-relaxed text-neutral-content/85">Selecciona las opciones que describen tu proyecto. La ficha ayuda a identificar las revisiones necesarias antes de desarrollar o poner una solución en uso.</p>
-            <div class="mt-6 flex flex-wrap gap-2" aria-label="Características de la ficha">
-              <span class="badge border-white/20 bg-white/10 text-neutral-content"><ListChecks size={14} aria-hidden="true" /> 3 pasos</span>
-              <span class="badge border-white/20 bg-white/10 text-neutral-content"><CircleCheck size={14} aria-hidden="true" /> Solo selecciones</span>
-              <span class="badge border-white/20 bg-white/10 text-neutral-content"><ShieldCheck size={14} aria-hidden="true" /> Sin envío de datos</span>
-            </div>
-          </div>
-          <div class="card mt-9 border border-white/20 bg-white/10 shadow-none" aria-label="Información importante">
-            <div class="card-body gap-3 p-5">
-              <span class="grid size-9 place-items-center rounded-lg bg-white/15 text-sky-institutional"><Info size={19} aria-hidden="true" /></span>
-              <h2 class="text-xs font-bold uppercase tracking-[.13em] text-sky-institutional">Antes de comenzar</h2>
-              <p class="text-xs leading-relaxed text-neutral-content/85">Esta versión genera una preevaluación orientativa. La recepción se integrará con un sistema interno privado; todavía no emite autorizaciones.</p>
-            </div>
           </div>
         </div>
       </aside>
 
       <div class="main-column min-w-0">
-        <header class="border-b border-base-300 bg-base-100">
-          <nav class="navbar mx-auto max-w-5xl gap-3 px-4 sm:px-8" aria-label="Navegación principal">
-            <button id="intro-toggle" type="button" class="btn btn-ghost btn-sm gap-2" aria-controls="intro-panel" aria-expanded="true">
-              <PanelLeftClose id="intro-toggle-icon-open" size={18} aria-hidden="true" />
-              <PanelLeftOpen id="intro-toggle-icon-closed" size={18} aria-hidden="true" hidden />
-              <span id="intro-toggle-label">Ocultar introducción</span>
-            </button>
-            <span class="badge badge-outline ml-auto hidden border-primary/30 text-primary sm:inline-flex">Ficha de proyecto</span>
-          </nav>
-        </header>
-
     <main class="relative mx-auto max-w-5xl px-4 pb-16 pt-10 sm:px-8">
+      <button id="intro-reopen" type="button" class="btn btn-outline btn-sm mb-6 gap-2 border-white/70 text-white hover:border-white hover:bg-white hover:text-primary" aria-controls="intro-panel" aria-expanded="false" hidden><PanelLeftOpen size={18} aria-hidden="true" />Mostrar introducción</button>
       <div class="mb-5 flex flex-wrap items-end justify-between gap-3 px-1">
         <div>
-          <p class="mb-1 text-xs font-bold uppercase tracking-[.16em] text-primary">Punto de partida</p>
-          <h2 id="form-title" class="text-2xl font-bold tracking-tight sm:text-3xl">Ficha de proyecto</h2>
+          <p class="mb-1 text-xs font-bold uppercase tracking-[.16em] text-sky-institutional">Punto de partida</p>
+          <h2 id="form-title" class="text-2xl font-bold tracking-tight text-white sm:text-3xl">Ficha de proyecto</h2>
         </div>
-        <p class="text-sm text-base-content/60">Ninguna respuesta requiere escribir.</p>
+        <p class="text-sm text-white/85">Ninguna respuesta requiere escribir.</p>
       </div>
 
       <section class="grid gap-5" aria-labelledby="form-title">
@@ -101,7 +81,7 @@ import '../styles/global.css';
 
                   {step.questions.map((question, questionIndex) => (
                     <fieldset class="question mb-8" data-question={question.key}>
-                      <legend class="mb-3 flex items-baseline gap-3 text-sm font-semibold sm:text-base"><span class="font-mono text-xs font-bold text-primary">{String(index * 3 + questionIndex + 1).padStart(2, '0')}</span>{question.label}</legend>
+                      <legend class="mb-3 flex items-baseline gap-3 text-sm font-semibold sm:text-base"><span class="text-xs font-semibold text-primary">{String(index * 3 + questionIndex + 1).padStart(2, '0')}</span>{question.label}</legend>
                       <div class="option-grid grid gap-2 sm:grid-cols-2">
                         {question.options.map(([value, label]) => (
                           <label class="option-card flex min-h-14 cursor-pointer items-center gap-3 rounded-box border border-base-300 bg-base-100 px-4 py-3 text-sm leading-snug hover:border-primary/55 hover:bg-base-200" for={`${question.key}-${value}`}>
@@ -133,7 +113,7 @@ import '../styles/global.css';
                 <p id="assessment-summary" class="mt-1 text-sm"></p>
               </div>
               <div id="reasons-wrap" hidden><h4 class="text-sm font-bold">Factores detectados</h4><ul id="assessment-reasons" class="mt-2 list-inside list-disc space-y-1 text-sm"></ul></div>
-              <p id="unknowns-note" class="alert alert-warning alert-soft mt-5 text-sm" hidden></p>
+              <p id="unknowns-note" class="alert unknowns-note mt-5 text-sm" hidden></p>
               <div class="mt-7 flex flex-wrap gap-2">
                 <button type="button" id="download-button" class="btn btn-primary"><Download size={17} aria-hidden="true" />Descargar ficha</button>
                 <button type="button" id="reset-button" class="btn btn-ghost"><RotateCcw size={17} aria-hidden="true" />Crear otra ficha</button>
@@ -145,7 +125,7 @@ import '../styles/global.css';
       </section>
     </main>
 
-    <footer class="mx-auto flex max-w-5xl flex-wrap justify-between gap-2 border-t border-base-300 px-5 py-6 text-xs text-base-content/50 sm:px-8"><span>Arquitectura y desarrollo seguro · Borrador de trabajo</span><span>La evaluación automática no constituye aprobación.</span></footer>
+    <footer class="mx-auto flex max-w-5xl flex-wrap justify-between gap-2 border-t border-white/25 px-5 py-6 text-xs text-white/80 sm:px-8"><span>Arquitectura y desarrollo seguro · Borrador de trabajo</span><span>La evaluación automática no constituye aprobación.</span></footer>
       </div>
     </div>
     <script>import '../scripts/form.js';</script>
