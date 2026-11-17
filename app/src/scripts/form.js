@@ -76,10 +76,6 @@ function finish() {
   result.hidden = false;
   const assessmentPanel = document.querySelector('#assessment');
   assessmentPanel.dataset.level = assessment.level;
-  assessmentPanel.classList.remove('alert-info', 'alert-warning', 'alert-success');
-  assessmentPanel.classList.add(assessment.level === 'prioritaria'
-    ? 'alert-warning'
-    : assessment.level === 'estandar' ? 'alert-info' : 'alert-success');
   document.querySelector('#assessment-title').textContent = assessment.title;
   document.querySelector('#assessment-summary').textContent = assessment.summary;
 
