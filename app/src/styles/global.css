@@ -40,7 +40,7 @@
 }
 
 html { scroll-behavior: smooth; }
-body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+html, body, button, input, select, textarea { font-family: Oxygen, ui-sans-serif, system-ui, sans-serif; }
 [hidden] { display: none !important; }
 :focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
 .app-shell { display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); min-height: 100vh; }
