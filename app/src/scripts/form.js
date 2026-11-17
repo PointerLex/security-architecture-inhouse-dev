@@ -11,8 +11,34 @@ const errorSummary = document.querySelector('#error-summary');
 const backButton = document.querySelector('#back-button');
 const nextButton = document.querySelector('#next-button');
 const result = document.querySelector('#result');
+const appShell = document.querySelector('#app-shell');
+const introPanel = document.querySelector('#intro-panel');
+const introToggle = document.querySelector('#intro-toggle');
+const introToggleLabel = document.querySelector('#intro-toggle-label');
+const introToggleIconOpen = document.querySelector('#intro-toggle-icon-open');
+const introToggleIconClosed = document.querySelector('#intro-toggle-icon-closed');
 let currentStep = 0;
 let completedFicha = null;
+
+function setIntroOpen(open) {
+  appShell.dataset.introOpen = String(open);
+  introPanel.hidden = !open;
+  introToggle.setAttribute('aria-expanded', String(open));
+  introToggleLabel.textContent = open ? 'Ocultar introducción' : 'Mostrar introducción';
+  introToggleIconOpen.hidden = !open;
+  introToggleIconClosed.hidden = open;
+}
+
+const compactLayout = window.matchMedia('(max-width: 899px)');
+let introChangedByUser = false;
+setIntroOpen(!compactLayout.matches);
+introToggle.addEventListener('click', () => {
+  introChangedByUser = true;
+  setIntroOpen(introPanel.hidden);
+});
+compactLayout.addEventListener('change', () => {
+  if (!introChangedByUser) setIntroOpen(!compactLayout.matches);
+});
 
 function showStep(index) {
   currentStep = index;
